@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude.ai – Ett smart AI-verktyg för plugget</title>
+    <style>
+        :root {
+            --claude-orange: #DE7356;
+            --claude-dark: #1A1A1A;
+            --claude-gray: #2A2A2A;
+            --text-light: #F4F3EE;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--claude-dark);
+            color: var(--text-light);
+            line-height: 1.7;
+            padding: 0;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2A2A2A, #1A1A1A);
+            padding: 3rem 0;
+            text-align: center;
+            border-bottom: 4px solid var(--claude-orange);
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            margin: 2.5rem 0 1.5rem;
+            color: var(--claude-orange);
+            border-left: 6px solid var(--claude-orange);
+            padding-left: 1rem;
+        }
+        
+        h3 {
+            font-size: 1.6rem;
+            margin: 2rem 0 1rem;
+            color: #F4F3EE;
+        }
+        
+        p, li {
+            font-size: 1.15rem;
+            color: #E0E0E0;
+        }
+        
+        .section {
+            background-color: var(--claude-gray);
+            margin: 2.5rem 0;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .highlight {
+            background-color: rgba(222, 115, 86, 0.15);
+            border-left: 5px solid var(--claude-orange);
+            padding: 1.2rem;
+            margin: 1.5rem 0;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            border: 1px solid #444;
+        }
+        
+        .screenshot {
+            display: block;
+            margin: 2rem auto;
+        }
+        
+        ul {
+            padding-left: 1.5rem;
+            margin: 1.2rem 0;
+        }
+        
+        a {
+            color: var(--claude-orange);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: #888;
+            font-size: 1rem;
+            margin-top: 4rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--claude-orange);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            margin: 0.5rem 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Projekt AI-Verktyg</h1>
+            <p style="font-size: 1.6rem; margin-top: 1rem;">Claude.ai – En smart studiekamrat</p>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="section">
+            <h2>Verktyget</h2>
+            <p><strong>Claude.ai</strong><br>
+            Länk: <a href="https://claude.ai" target="_blank">https://claude.ai</a><br>
+            Utvecklat av: Anthropic</p>
+        </div>
+
+        <div class="section">
+            <h2>Allmän beskrivning</h2>
+            <p>Claude är en AI-assistent från Anthropic som hjälper till med att svara på frågor, skriva texter, sammanfatta material och skapa övningsprov.</p>
+            <p>Den har ett stort kontextfönster och är bra på att hantera långa PDF-filer och kursmaterial. En av de saker jag uppskattar mest är att Claude ofta är självkritisk och kan peka ut brister i sitt eget output.</p>
+            
+            <p><strong>Kostnad:</strong><br>
+            Gratisversion finns men har begränsningar.<br>
+            Claude Pro kostar ca 20 USD/månad (ca 200–220 kr) och ger betydligt högre användningsgränser + bättre modeller (t.ex. Sonnet 4.6).</p>
+        </div>
+
+        <div class="section">
+            <h2>Användning – Exempel 1: Övningsprov i religion</h2>
+            <p>Jag ville träna essäfrågor inför ett prov i religion. Jag tog en sammanfattning och skrev:</p>
+            <div class="highlight">"Ge mig ett exempelprov på detta:"</div>
+            
+            <img src="images/religion-prompt.png" alt="Prompt till Claude om religionsprov" class="screenshot">
+            <img src="images/religion-prov.png" alt="Genererat religionsprov" class="screenshot">
+            <img src="images/religion-facit.png" alt="Facit i religionsprovet" class="screenshot">
+            
+            <p>Resultatet blev ett interaktivt prov med "Visa facit"-knappar där fullständiga exempel på bra svar dök upp.</p>
+        </div>
+
+        <div class="section">
+            <h2>Användning – Exempel 2: AI-provet</h2>
+            <p>Här laddade jag upp alla PDF-filer med instuderingsmaterial och bad Claude:</p>
+            <ul>
+                <li>Besvara alla instuderingsfrågor</li>
+                <li>Skapa ett övningsprov med flervalsfrågor och essäfrågor</li>
+            </ul>
+            
+            <img src="images/pdf-uppladdning.png" alt="PDF-filer uppladdade i Claude" class="screenshot">
+            <img src="images/ai-prov-interaktiv.png" alt="Interaktivt övningsprov med flervalsfrågor" class="screenshot">
+            <img src="images/instuderingsfragor-svar.png" alt="Claude svarar på instuderingsfrågor" class="screenshot">
+            
+            <p>Claude byggde till och med provet som en interaktiv app – riktigt snyggt!</p>
+            
+            <h3>Test av självkritik</h3>
+            <p>Jag märkte att vissa delar av materialet saknades och bad Claude:</p>
+            <div class="highlight">"Kan du själv hitta några brister i dessa exempelfrågor där info från pdf-filerna ej prövas?"</div>
+            
+            <img src="images/luckor-prompt.png" alt="Prompt om brister i proven" class="screenshot">
+            <img src="images/luckor-svar.png" alt="Claude hittar luckor i materialet" class="screenshot">
+            
+            <p>Claude hittade flera luckor, bland annat inom lagstiftning (AI Act och GDPR). Den visade en imponerande förmåga att vara självkritisk.</p>
+        </div>
+
+        <div class="section">
+            <h2>Min slutliga analys</h2>
+            <p>Claude är riktigt stark på att skapa strukturerade och interaktiva övningsprov. Att den kan bygga prov som en liten app med facit-knappar gör det mycket mer användbart än vanlig text.</p>
+            
+            <p><strong>Plus:</strong> Bra på stora textmängder, naturligt språk, självkritisk förmåga.<br>
+            <strong>Minus:</strong> Kan ibland utelämna delar av materialet om prompten inte är tillräckligt tydlig. Gratisversionen blir begränsad snabbt.</p>
+            
+            <p><strong>Sammanfattning:</strong> Claude.ai är ett av de bästa AI-verktygen för skolarbete. Det sparar tid och fungerar nästan som en extra studiekamrat. Jag rekommenderar det varmt till andra elever.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Projekt AI-Verktyg – "There is an AI for that" • Vt 2026</p>
+        <p>Skapad med hjälp av Claude.ai</p>
+    </footer>
+</body>
+</html>
