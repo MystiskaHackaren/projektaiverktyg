@@ -3,207 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claude.ai – Ett smart AI-verktyg för plugget</title>
+    <title>Claude.ai | AI-Verktyg för Plugget</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
-            --claude-orange: #DE7356;
-            --claude-dark: #1A1A1A;
-            --claude-gray: #2A2A2A;
-            --text-light: #F4F3EE;
+            --claude-orange: #FF6B4A;
+            --claude-dark: #0F0F0F;
+            --claude-gray: #1C1C1C;
+            --text: #E8E8E8;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Segoe UI', system-ui, sans-serif;
             background-color: var(--claude-dark);
-            color: var(--text-light);
+            color: var(--text);
             line-height: 1.7;
-            padding: 0;
+            overflow-x: hidden;
         }
-        
-        header {
-            background: linear-gradient(135deg, #2A2A2A, #1A1A1A);
-            padding: 3rem 0;
-            text-align: center;
-            border-bottom: 4px solid var(--claude-orange);
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid #333;
         }
-        
-        .container {
-            max-width: 1100px;
+
+        .nav-container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
         }
-        
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--claude-orange);
+        }
+
+        .nav-links a {
+            color: #ddd;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--claude-orange);
+        }
+
+        /* Hero */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('images/claude-start.png') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1rem;
             color: white;
         }
-        
-        h2 {
-            font-size: 2.2rem;
-            margin: 2.5rem 0 1.5rem;
-            color: var(--claude-orange);
-            border-left: 6px solid var(--claude-orange);
-            padding-left: 1rem;
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
-        
-        h3 {
-            font-size: 1.6rem;
-            margin: 2rem 0 1rem;
-            color: #F4F3EE;
-        }
-        
-        p, li {
-            font-size: 1.15rem;
-            color: #E0E0E0;
-        }
-        
-        .section {
-            background-color: var(--claude-gray);
-            margin: 2.5rem 0;
-            padding: 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        }
-        
-        .highlight {
-            background-color: rgba(222, 115, 86, 0.15);
-            border-left: 5px solid var(--claude-orange);
-            padding: 1.2rem;
-            margin: 1.5rem 0;
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-            margin: 1.5rem 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-            border: 1px solid #444;
-        }
-        
-        .screenshot {
-            display: block;
-            margin: 2rem auto;
-        }
-        
-        ul {
-            padding-left: 1.5rem;
-            margin: 1.2rem 0;
-        }
-        
-        a {
-            color: var(--claude-orange);
-            text-decoration: none;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 3rem 0;
-            color: #888;
-            font-size: 1rem;
-            margin-top: 4rem;
-        }
-        
-        .badge {
+
+        .btn {
             display: inline-block;
             background: var(--claude-orange);
             color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            margin: 0.5rem 0.3rem;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 74, 0.4);
+        }
+
+        /* Sections */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--claude-orange);
+        }
+
+        .section {
+            background: var(--claude-gray);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 4rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .card {
+            background: #252525;
+            padding: 2rem;
+            border-radius: 16px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 16px;
+            margin: 1.5rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        img:hover {
+            transform: scale(1.03);
+        }
+
+        .highlight {
+            background: rgba(255, 107, 74, 0.1);
+            border-left: 6px solid var(--claude-orange);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        footer {
+            background: #0A0A0A;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .creator {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            color: #aaa;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Projekt AI-Verktyg</h1>
-            <p style="font-size: 1.6rem; margin-top: 1rem;">Claude.ai – En smart studiekamrat</p>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Claude.ai</div>
+            <div class="nav-links">
+                <a href="#beskrivning">Beskrivning</a>
+                <a href="#exempel1">Exempel 1</a>
+                <a href="#exempel2">Exempel 2</a>
+                <a href="#analys">Analys</a>
+            </div>
         </div>
-    </header>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="top">
+        <div class="hero-content">
+            <h1>Claude.ai</h1>
+            <p>En intelligent AI-assistent som blev min bästa studiekamrat</p>
+            <a href="#beskrivning" class="btn">Utforska projektet</a>
+        </div>
+    </section>
 
     <div class="container">
 
-        <div class="section">
-            <h2>Verktyget</h2>
-            <p><strong>Claude.ai</strong><br>
-            Länk: <a href="https://claude.ai" target="_blank">https://claude.ai</a><br>
-            Utvecklat av: Anthropic</p>
-        </div>
+        <!-- Verktyget -->
+        <section id="beskrivning">
+            <div class="section">
+                <h2>Verktyget</h2>
+                <h3>Claude.ai</h3>
+                <p><strong>Länk:</strong> <a href="https://claude.ai" target="_blank">https://claude.ai</a><br>
+                <strong>Utvecklat av:</strong> Anthropic</p>
+                
+                <p>Claude är en kraftfull AI-assistent som utmärker sig genom stort kontextfönster, bra förmåga att hantera stora PDF-filer och en imponerande självkritisk sida.</p>
+                
+                <p><strong>Kostnad:</strong> Gratisversion med begränsningar • Pro-version ca 20 USD/månad.</p>
+            </div>
+        </section>
 
-        <div class="section">
-            <h2>Allmän beskrivning</h2>
-            <p>Claude är en AI-assistent från Anthropic som hjälper till med att svara på frågor, skriva texter, sammanfatta material och skapa övningsprov.</p>
-            <p>Den har ett stort kontextfönster och är bra på att hantera långa PDF-filer och kursmaterial. En av de saker jag uppskattar mest är att Claude ofta är självkritisk och kan peka ut brister i sitt eget output.</p>
-            
-            <p><strong>Kostnad:</strong><br>
-            Gratisversion finns men har begränsningar.<br>
-            Claude Pro kostar ca 20 USD/månad (ca 200–220 kr) och ger betydligt högre användningsgränser + bättre modeller (t.ex. Sonnet 4.6).</p>
-        </div>
+        <!-- Exempel 1 -->
+        <section id="exempel1">
+            <div class="section">
+                <h2>Exempel 1 – Övningsprov i Religion</h2>
+                <p>Jag bad Claude skapa ett interaktivt övningsprov baserat på mitt religionsmaterial.</p>
+                
+                <div class="highlight">
+                    Prompt: <strong>"Ge mig ett exempelprov på detta:"</strong>
+                </div>
+                
+                <img src="images/religion-prompt.png" alt="Prompt - Religionsprov" onclick="this.requestFullscreen()">
+                <img src="images/religion-prov.png" alt="Religionsprov" onclick="this.requestFullscreen()">
+                <img src="images/religion-facit.png" alt="Facit i religionsprovet" onclick="this.requestFullscreen()">
+            </div>
+        </section>
 
-        <div class="section">
-            <h2>Användning – Exempel 1: Övningsprov i religion</h2>
-            <p>Jag ville träna essäfrågor inför ett prov i religion. Jag tog en sammanfattning och skrev:</p>
-            <div class="highlight">"Ge mig ett exempelprov på detta:"</div>
-            
-            <img src="images/religion-prompt.png" alt="Prompt till Claude om religionsprov" class="screenshot">
-            <img src="images/religion-prov.png" alt="Genererat religionsprov" class="screenshot">
-            <img src="images/religion-facit.png" alt="Facit i religionsprovet" class="screenshot">
-            
-            <p>Resultatet blev ett interaktivt prov med "Visa facit"-knappar där fullständiga exempel på bra svar dök upp.</p>
-        </div>
+        <!-- Exempel 2 -->
+        <section id="exempel2">
+            <div class="section">
+                <h2>Exempel 2 – AI-provet</h2>
+                <p>Här laddade jag upp allt kursmaterial och lät Claude skapa ett komplett interaktivt övningsprov.</p>
+                
+                <img src="images/pdf-uppladdning.png" alt="PDF-filer uppladdade" onclick="this.requestFullscreen()">
+                <img src="images/ai-prov-interaktiv.png" alt="Interaktivt övningsprov" onclick="this.requestFullscreen()">
+                <img src="images/instuderingsfragor-svar.png" alt="Svar på instuderingsfrågor" onclick="this.requestFullscreen()">
+                
+                <h3>Test av självkritik</h3>
+                <div class="highlight">
+                    Prompt: <strong>"Kan du själv hitta några brister i dessa exempelfrågor där info från pdf-filerna ej prövas?"</strong>
+                </div>
+                
+                <img src="images/luckor-prompt.png" alt="Prompt om brister" onclick="this.requestFullscreen()">
+                <img src="images/luckor-svar.png" alt="Claude hittar luckor" onclick="this.requestFullscreen()">
+            </div>
+        </section>
 
-        <div class="section">
-            <h2>Användning – Exempel 2: AI-provet</h2>
-            <p>Här laddade jag upp alla PDF-filer med instuderingsmaterial och bad Claude:</p>
-            <ul>
-                <li>Besvara alla instuderingsfrågor</li>
-                <li>Skapa ett övningsprov med flervalsfrågor och essäfrågor</li>
-            </ul>
-            
-            <img src="images/pdf-uppladdning.png" alt="PDF-filer uppladdade i Claude" class="screenshot">
-            <img src="images/ai-prov-interaktiv.png" alt="Interaktivt övningsprov med flervalsfrågor" class="screenshot">
-            <img src="images/instuderingsfragor-svar.png" alt="Claude svarar på instuderingsfrågor" class="screenshot">
-            
-            <p>Claude byggde till och med provet som en interaktiv app – riktigt snyggt!</p>
-            
-            <h3>Test av självkritik</h3>
-            <p>Jag märkte att vissa delar av materialet saknades och bad Claude:</p>
-            <div class="highlight">"Kan du själv hitta några brister i dessa exempelfrågor där info från pdf-filerna ej prövas?"</div>
-            
-            <img src="images/luckor-prompt.png" alt="Prompt om brister i proven" class="screenshot">
-            <img src="images/luckor-svar.png" alt="Claude hittar luckor i materialet" class="screenshot">
-            
-            <p>Claude hittade flera luckor, bland annat inom lagstiftning (AI Act och GDPR). Den visade en imponerande förmåga att vara självkritisk.</p>
-        </div>
-
-        <div class="section">
-            <h2>Min slutliga analys</h2>
-            <p>Claude är riktigt stark på att skapa strukturerade och interaktiva övningsprov. Att den kan bygga prov som en liten app med facit-knappar gör det mycket mer användbart än vanlig text.</p>
-            
-            <p><strong>Plus:</strong> Bra på stora textmängder, naturligt språk, självkritisk förmåga.<br>
-            <strong>Minus:</strong> Kan ibland utelämna delar av materialet om prompten inte är tillräckligt tydlig. Gratisversionen blir begränsad snabbt.</p>
-            
-            <p><strong>Sammanfattning:</strong> Claude.ai är ett av de bästa AI-verktygen för skolarbete. Det sparar tid och fungerar nästan som en extra studiekamrat. Jag rekommenderar det varmt till andra elever.</p>
-        </div>
+        <!-- Analys -->
+        <section id="analys">
+            <div class="section">
+                <h2>Min slutliga analys</h2>
+                <p>Claude.ai är ett av de starkaste AI-verktygen för skolarbete just nu. Den är särskilt bra på att skapa strukturerade och interaktiva övningsprov, hantera stora mängder material och visa en äkta självkritisk förmåga.</p>
+                
+                <strong>Styrkor:</strong>
+                <ul>
+                    <li>Stort kontextfönster – hanterar hela kursmaterial</li>
+                    <li>Skapar snygga interaktiva prov</li>
+                    <li>Bra på självkritik och att hitta egna brister</li>
+                    <li>Naturligt och välformulerat språk</li>
+                </ul>
+                
+                <strong>Svagheter:</strong>
+                <ul>
+                    <li>Kan ibland utelämna delar av materialet</li>
+                    <li>Gratisversionen har relativt snåla begränsningar</li>
+                </ul>
+                
+                <p><strong>Slutsats:</strong> Claude är ett verktyg jag varmt rekommenderar till andra elever. Det sparar tid och fungerar som en riktigt bra studiekamrat.</p>
+            </div>
+        </section>
 
     </div>
 
     <footer>
-        <p>Projekt AI-Verktyg – "There is an AI for that" • Vt 2026</p>
-        <p>Skapad med hjälp av Claude.ai</p>
+        <div class="container">
+            <p>Projekt AI-Verktyg – "There is an AI for that" • Vårterminen 2026</p>
+            <p class="creator">Skapad av <strong>Erik Na24B</strong></p>
+            <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.7;">
+                Tack till Claude.ai för hjälp med att skapa och strukturera innehållet
+            </p>
+        </div>
     </footer>
+
+    <script>
+        // Enkel lightbox-effekt genom fullscreen på klick
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('click', () => {
+                if (img.requestFullscreen) {
+                    img.requestFullscreen();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
